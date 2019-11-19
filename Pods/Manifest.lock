@@ -1,0 +1,16 @@
+PODS:
+  - VBRRollingPit (1.0.1)
+
+DEPENDENCIES:
+  - VBRRollingPit
+
+SPEC REPOS:
+  trunk:
+    - VBRRollingPit
+
+SPEC CHECKSUMS:
+  VBRRollingPit: 62a79cc663aeea6a196878b3a907056617f96b6a
+
+PODFILE CHECKSUM: b47a0b8d383d9aee1a4467c1a447ab8c093bf86e
+
+COCOAPODS: 1.8.4
