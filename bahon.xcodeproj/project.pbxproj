@@ -3,19 +3,27 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD496CF32382CBB4007F654A /* CarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD496CF22382CBB4007F654A /* CarViewController.swift */; };
+		DD496CF52382CE3B007F654A /* VehicleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD496CF42382CE3B007F654A /* VehicleTableViewCell.swift */; };
 		DDFDB3932380FA8200027DDD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFDB3922380FA8200027DDD /* AppDelegate.swift */; };
 		DDFDB3952380FA8200027DDD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFDB3942380FA8200027DDD /* SceneDelegate.swift */; };
 		DDFDB3972380FA8200027DDD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFDB3962380FA8200027DDD /* ViewController.swift */; };
 		DDFDB39A2380FA8200027DDD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDFDB3982380FA8200027DDD /* Main.storyboard */; };
 		DDFDB39C2380FA8500027DDD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDFDB39B2380FA8500027DDD /* Assets.xcassets */; };
 		DDFDB39F2380FA8500027DDD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDFDB39D2380FA8500027DDD /* LaunchScreen.storyboard */; };
+		DDFDB3BA2381170300027DDD /* CategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFDB3B92381170300027DDD /* CategoryVC.swift */; };
+		ECC8E9C51E0A95F0B0B35B84 /* Pods_bahon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70379D8FF643B0F31DBA5116 /* Pods_bahon.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		70379D8FF643B0F31DBA5116 /* Pods_bahon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bahon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		834D2C743A8AAA61B3DFBB4F /* Pods-bahon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bahon.release.xcconfig"; path = "Target Support Files/Pods-bahon/Pods-bahon.release.xcconfig"; sourceTree = "<group>"; };
+		DD496CF22382CBB4007F654A /* CarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarViewController.swift; sourceTree = "<group>"; };
+		DD496CF42382CE3B007F654A /* VehicleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleTableViewCell.swift; sourceTree = "<group>"; };
 		DDFDB38F2380FA8200027DDD /* bahon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bahon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDFDB3922380FA8200027DDD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDFDB3942380FA8200027DDD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +32,8 @@
 		DDFDB39B2380FA8500027DDD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DDFDB39E2380FA8500027DDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DDFDB3A02380FA8500027DDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDFDB3B92381170300027DDD /* CategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryVC.swift; sourceTree = "<group>"; };
+		E386DD953F0FA888DD2484A9 /* Pods-bahon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bahon.debug.xcconfig"; path = "Target Support Files/Pods-bahon/Pods-bahon.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +41,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECC8E9C51E0A95F0B0B35B84 /* Pods_bahon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		52691A2A99DA8B89383FDED8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E386DD953F0FA888DD2484A9 /* Pods-bahon.debug.xcconfig */,
+				834D2C743A8AAA61B3DFBB4F /* Pods-bahon.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		8C26E01E87C990C5B67012DD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				70379D8FF643B0F31DBA5116 /* Pods_bahon.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DDFDB3862380FA8200027DDD = {
 			isa = PBXGroup;
 			children = (
 				DDFDB3912380FA8200027DDD /* bahon */,
 				DDFDB3902380FA8200027DDD /* Products */,
+				52691A2A99DA8B89383FDED8 /* Pods */,
+				8C26E01E87C990C5B67012DD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,6 +93,9 @@
 				DDFDB39B2380FA8500027DDD /* Assets.xcassets */,
 				DDFDB39D2380FA8500027DDD /* LaunchScreen.storyboard */,
 				DDFDB3A02380FA8500027DDD /* Info.plist */,
+				DDFDB3B92381170300027DDD /* CategoryVC.swift */,
+				DD496CF22382CBB4007F654A /* CarViewController.swift */,
+				DD496CF42382CE3B007F654A /* VehicleTableViewCell.swift */,
 			);
 			path = bahon;
 			sourceTree = "<group>";
@@ -74,9 +107,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DDFDB3A32380FA8500027DDD /* Build configuration list for PBXNativeTarget "bahon" */;
 			buildPhases = (
+				45F8BA06840DDDA171AD0CB9 /* [CP] Check Pods Manifest.lock */,
 				DDFDB38B2380FA8200027DDD /* Sources */,
 				DDFDB38C2380FA8200027DDD /* Frameworks */,
 				DDFDB38D2380FA8200027DDD /* Resources */,
+				7099462F3721A9BE8497DDBC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -99,6 +134,7 @@
 				TargetAttributes = {
 					DDFDB38E2380FA8200027DDD = {
 						CreatedOnToolsVersion = 11.1;
+						LastSwiftMigration = 1110;
 					};
 				};
 			};
@@ -133,11 +169,56 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		45F8BA06840DDDA171AD0CB9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-bahon-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7099462F3721A9BE8497DDBC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-bahon/Pods-bahon-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-bahon/Pods-bahon-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-bahon/Pods-bahon-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DDFDB38B2380FA8200027DDD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDFDB3BA2381170300027DDD /* CategoryVC.swift in Sources */,
+				DD496CF52382CE3B007F654A /* VehicleTableViewCell.swift in Sources */,
+				DD496CF32382CBB4007F654A /* CarViewController.swift in Sources */,
 				DDFDB3972380FA8200027DDD /* ViewController.swift in Sources */,
 				DDFDB3932380FA8200027DDD /* AppDelegate.swift in Sources */,
 				DDFDB3952380FA8200027DDD /* SceneDelegate.swift in Sources */,
@@ -282,8 +363,10 @@
 		};
 		DDFDB3A42380FA8500027DDD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E386DD953F0FA888DD2484A9 /* Pods-bahon.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2QG28FK6YK;
 				INFOPLIST_FILE = bahon/Info.plist;
@@ -293,6 +376,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.arifamzad.bahon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -300,8 +385,10 @@
 		};
 		DDFDB3A52380FA8500027DDD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 834D2C743A8AAA61B3DFBB4F /* Pods-bahon.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2QG28FK6YK;
 				INFOPLIST_FILE = bahon/Info.plist;
@@ -311,6 +398,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.arifamzad.bahon;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
