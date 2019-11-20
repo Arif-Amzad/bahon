@@ -7,5 +7,10 @@ target 'bahon' do
   # Pods for bahon
   
    pod 'VBRRollingPit'
+   
+   pod 'Firebase/Analytics'
+   pod 'Firebase/Auth'
+   pod 'Firebase/Firestore'
+   pod 'Firebase/Database'
 
 end

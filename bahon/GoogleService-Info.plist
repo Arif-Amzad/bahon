@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1049395925833-2ng3uue0cojqvk6eej60j02mterjbs19.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1049395925833-2ng3uue0cojqvk6eej60j02mterjbs19</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCTgmEPM-WXsLfM8jRW_GIFWkY_519rCmE</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1049395925833</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.arifamzad.bahon</string>
+	<key>PROJECT_ID</key>
+	<string>bahon-77a9adfjkdjfdne</string>
+	<key>STORAGE_BUCKET</key>
+	<string>bahon-77a9adfjkdjfdne.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1049395925833:ios:d4fde3c11d6efa067b0098</string>
+	<key>DATABASE_URL</key>
+	<string>https://bahon-77a9adfjkdjfdne.firebaseio.com</string>
+</dict>
+</plist>

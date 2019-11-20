@@ -9,8 +9,11 @@
 /* Begin PBXBuildFile section */
 		DD496CF32382CBB4007F654A /* CarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD496CF22382CBB4007F654A /* CarViewController.swift */; };
 		DD496CF52382CE3B007F654A /* VehicleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD496CF42382CE3B007F654A /* VehicleTableViewCell.swift */; };
+		DD496CFB2383C21B007F654A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD496CFA2383C21B007F654A /* LoginViewController.swift */; };
+		DD496CFE2383C657007F654A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD496CFD2383C657007F654A /* GoogleService-Info.plist */; };
+		DDAAC7E32383D9AF0016D6F7 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAAC7E22383D9AF0016D6F7 /* RegisterViewController.swift */; };
+		DDCF19462385E44C0064EABD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCF19452385E44C0064EABD /* SceneDelegate.swift */; };
 		DDFDB3932380FA8200027DDD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFDB3922380FA8200027DDD /* AppDelegate.swift */; };
-		DDFDB3952380FA8200027DDD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFDB3942380FA8200027DDD /* SceneDelegate.swift */; };
 		DDFDB3972380FA8200027DDD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFDB3962380FA8200027DDD /* ViewController.swift */; };
 		DDFDB39A2380FA8200027DDD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDFDB3982380FA8200027DDD /* Main.storyboard */; };
 		DDFDB39C2380FA8500027DDD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDFDB39B2380FA8500027DDD /* Assets.xcassets */; };
@@ -24,9 +27,12 @@
 		834D2C743A8AAA61B3DFBB4F /* Pods-bahon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bahon.release.xcconfig"; path = "Target Support Files/Pods-bahon/Pods-bahon.release.xcconfig"; sourceTree = "<group>"; };
 		DD496CF22382CBB4007F654A /* CarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarViewController.swift; sourceTree = "<group>"; };
 		DD496CF42382CE3B007F654A /* VehicleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleTableViewCell.swift; sourceTree = "<group>"; };
+		DD496CFA2383C21B007F654A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		DD496CFD2383C657007F654A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DDAAC7E22383D9AF0016D6F7 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		DDCF19452385E44C0064EABD /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DDFDB38F2380FA8200027DDD /* bahon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bahon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDFDB3922380FA8200027DDD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DDFDB3942380FA8200027DDD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DDFDB3962380FA8200027DDD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DDFDB3992380FA8200027DDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DDFDB39B2380FA8500027DDD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -65,6 +71,41 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DD496CF72383BCCD007F654A /* Car */ = {
+			isa = PBXGroup;
+			children = (
+				DDFDB3962380FA8200027DDD /* ViewController.swift */,
+				DD496CF22382CBB4007F654A /* CarViewController.swift */,
+				DD496CF42382CE3B007F654A /* VehicleTableViewCell.swift */,
+			);
+			path = Car;
+			sourceTree = "<group>";
+		};
+		DD496CF82383BD52007F654A /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				DDFDB39B2380FA8500027DDD /* Assets.xcassets */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		DD496CF92383BD6A007F654A /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				DDFDB3982380FA8200027DDD /* Main.storyboard */,
+			);
+			path = StoryBoards;
+			sourceTree = "<group>";
+		};
+		DD496CFC2383C228007F654A /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				DD496CFA2383C21B007F654A /* LoginViewController.swift */,
+				DDAAC7E22383D9AF0016D6F7 /* RegisterViewController.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
 		DDFDB3862380FA8200027DDD = {
 			isa = PBXGroup;
 			children = (
@@ -86,16 +127,16 @@
 		DDFDB3912380FA8200027DDD /* bahon */ = {
 			isa = PBXGroup;
 			children = (
+				DDCF19452385E44C0064EABD /* SceneDelegate.swift */,
+				DD496CFD2383C657007F654A /* GoogleService-Info.plist */,
 				DDFDB3922380FA8200027DDD /* AppDelegate.swift */,
-				DDFDB3942380FA8200027DDD /* SceneDelegate.swift */,
-				DDFDB3962380FA8200027DDD /* ViewController.swift */,
-				DDFDB3982380FA8200027DDD /* Main.storyboard */,
-				DDFDB39B2380FA8500027DDD /* Assets.xcassets */,
-				DDFDB39D2380FA8500027DDD /* LaunchScreen.storyboard */,
-				DDFDB3A02380FA8500027DDD /* Info.plist */,
 				DDFDB3B92381170300027DDD /* CategoryVC.swift */,
-				DD496CF22382CBB4007F654A /* CarViewController.swift */,
-				DD496CF42382CE3B007F654A /* VehicleTableViewCell.swift */,
+				DDFDB39D2380FA8500027DDD /* LaunchScreen.storyboard */,
+				DD496CFC2383C228007F654A /* Account */,
+				DD496CF92383BD6A007F654A /* StoryBoards */,
+				DD496CF82383BD52007F654A /* SupportingFiles */,
+				DD496CF72383BCCD007F654A /* Car */,
+				DDFDB3A02380FA8500027DDD /* Info.plist */,
 			);
 			path = bahon;
 			sourceTree = "<group>";
@@ -162,6 +203,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDFDB39F2380FA8500027DDD /* LaunchScreen.storyboard in Resources */,
+				DD496CFE2383C657007F654A /* GoogleService-Info.plist in Resources */,
 				DDFDB39C2380FA8500027DDD /* Assets.xcassets in Resources */,
 				DDFDB39A2380FA8200027DDD /* Main.storyboard in Resources */,
 			);
@@ -216,12 +258,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD496CFB2383C21B007F654A /* LoginViewController.swift in Sources */,
 				DDFDB3BA2381170300027DDD /* CategoryVC.swift in Sources */,
 				DD496CF52382CE3B007F654A /* VehicleTableViewCell.swift in Sources */,
+				DDAAC7E32383D9AF0016D6F7 /* RegisterViewController.swift in Sources */,
 				DD496CF32382CBB4007F654A /* CarViewController.swift in Sources */,
 				DDFDB3972380FA8200027DDD /* ViewController.swift in Sources */,
 				DDFDB3932380FA8200027DDD /* AppDelegate.swift in Sources */,
-				DDFDB3952380FA8200027DDD /* SceneDelegate.swift in Sources */,
+				DDCF19462385E44C0064EABD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
