@@ -48,6 +48,12 @@ class CarViewController: ViewController, UITableViewDataSource, UITableViewDeleg
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        let destinationVC = storyboard?.instantiateViewController(withIdentifier: "CarDetailsViewController") as! CarDetailsViewController
+
+        
+        self.navigationController?.pushViewController(destinationVC, animated: true)
+        
+                
     }
     
     

@@ -12,6 +12,7 @@
 		DD496CFB2383C21B007F654A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD496CFA2383C21B007F654A /* LoginViewController.swift */; };
 		DD496CFE2383C657007F654A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD496CFD2383C657007F654A /* GoogleService-Info.plist */; };
 		DDAAC7E32383D9AF0016D6F7 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAAC7E22383D9AF0016D6F7 /* RegisterViewController.swift */; };
+		DDCC785F238AD06F004E9695 /* CarDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC785E238AD06F004E9695 /* CarDetailsViewController.swift */; };
 		DDCF19462385E44C0064EABD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCF19452385E44C0064EABD /* SceneDelegate.swift */; };
 		DDFDB3932380FA8200027DDD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFDB3922380FA8200027DDD /* AppDelegate.swift */; };
 		DDFDB3972380FA8200027DDD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFDB3962380FA8200027DDD /* ViewController.swift */; };
@@ -30,6 +31,7 @@
 		DD496CFA2383C21B007F654A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DD496CFD2383C657007F654A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DDAAC7E22383D9AF0016D6F7 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		DDCC785E238AD06F004E9695 /* CarDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailsViewController.swift; sourceTree = "<group>"; };
 		DDCF19452385E44C0064EABD /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DDFDB38F2380FA8200027DDD /* bahon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bahon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDFDB3922380FA8200027DDD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 				DDFDB3962380FA8200027DDD /* ViewController.swift */,
 				DD496CF22382CBB4007F654A /* CarViewController.swift */,
 				DD496CF42382CE3B007F654A /* VehicleTableViewCell.swift */,
+				DDCC785E238AD06F004E9695 /* CarDetailsViewController.swift */,
 			);
 			path = Car;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 			files = (
 				DD496CFB2383C21B007F654A /* LoginViewController.swift in Sources */,
 				DDFDB3BA2381170300027DDD /* CategoryVC.swift in Sources */,
+				DDCC785F238AD06F004E9695 /* CarDetailsViewController.swift in Sources */,
 				DD496CF52382CE3B007F654A /* VehicleTableViewCell.swift in Sources */,
 				DDAAC7E32383D9AF0016D6F7 /* RegisterViewController.swift in Sources */,
 				DD496CF32382CBB4007F654A /* CarViewController.swift in Sources */,
