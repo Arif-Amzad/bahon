@@ -39,7 +39,11 @@ class RegisterViewController: UIViewController {
             if error == nil {
                 
                 //self.userDefaults.set(true, forKey: "userExist")
-                self.performSegue(withIdentifier: "goToHo", sender: self)
+                //self.performSegue(withIdentifier: "goToHo", sender: self)
+                
+                self.dismiss(animated: true, completion: nil)
+                
+                self.sendDataToDatabase()
             }
             else {
                 let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
@@ -53,6 +57,28 @@ class RegisterViewController: UIViewController {
         
         //let dVC = storyboard?.instantiateViewController(withIdentifier: "CarViewControllerID") as! CarViewController
         //self.navigationController?.pushViewController(dVC, animated: true)
+    }
+
+    
+    func sendDataToDatabase(){
+        
+        let currentUser = Auth.auth().currentUser?.email ?? "user email"
+        
+        let db = Database.database().reference().child("all_user")
+        
+        let dictonary = ["name": "\(name.text)"]
+        
+        db.child(currentUser).setValue(dictonary) {(error, reference) in
+            
+            if error == nil {
+                
+                print("Data successfully added to database")
+            }
+            else {
+                print("error \(String(describing: error))")
+            }
+            
+        }
     }
     
     /*

@@ -11,18 +11,20 @@ import Firebase
 
 class LoginViewController: UIViewController {
 
+    let userDefaults = UserDefaults.standard
+
     
     @IBOutlet weak var loginEmail: UITextField!
     
     @IBOutlet weak var loginPassword: UITextField!
     
-    //let user: String = ""
     
     var window: UIWindow?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,21 +42,32 @@ class LoginViewController: UIViewController {
         
         
         
-        
         Auth.auth().signIn(withEmail: email, password: password) {(user, error) in
             
             if error == nil {
                 
-                self.performSegue(withIdentifier: "log2home", sender: self)
+                //self.userDefaults.set(true, forKey: "userExists")
+                
+                self.dismiss(animated: true, completion: nil)
+                //self.performSegue(withIdentifier: "backToCar", sender: self)
+
             }
             else {
                 let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                
                 let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
                                
                  alertController.addAction(defaultAction)
                  self.present(alertController, animated: true, completion: nil)
             }
         }
+    }
+    
+    
+    func changeInAppAfterSignIn() {
+        
+        
+        
     }
     
     

@@ -9,20 +9,39 @@
 import UIKit
 import Firebase
 
-class CarViewController: ViewController, UITableViewDataSource, UITableViewDelegate {
+class CarViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    let userDefaults = UserDefaults.standard
+
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if Auth.auth().currentUser != nil {
+            
+            navigationItem .setLeftBarButton(nil, animated: false)
+            navigationItem.leftBarButtonItem?.title = "Profile"
+            
+            //loadView()
+            
+            self.loadView()
+        }
+
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
+//        if Auth.auth().currentUser != nil {
+//
+//            navigationItem.leftBarButtonItem?.title = "Profile"
+//        }
         
     }
+    
+    
 
     // MARK: - Table view data source
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -39,7 +58,7 @@ class CarViewController: ViewController, UITableViewDataSource, UITableViewDeleg
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "CarCell") as! VehicleTableViewCell
         
-        cell.vehicleName.text = "Toyota Axio"
+        cell.vehicleName.text = "Toyota Premio"
         
         cell.vehicleRegYear.text = "2018"
         
@@ -57,13 +76,56 @@ class CarViewController: ViewController, UITableViewDataSource, UITableViewDeleg
     }
     
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "signIn-addCar" {
+            
+            
+        }
+    }
+    
+    
+    
+    @IBAction func addCarButton(_ sender: UIBarButtonItem) {
+        
+        if Auth.auth().currentUser == nil {
+            
+            performSegue(withIdentifier: "signIn-addCar", sender: nil)
+        }
+        else {
+            
+            performSegue(withIdentifier: "addItem", sender: nil)
+        }
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     @IBAction func signout(_ sender: UIButton) {
         
         let firebaseAuth = Auth.auth()
         do {
           try firebaseAuth.signOut()
-            performSegue(withIdentifier: "goToLogin", sender: self)
+            
+            self.userDefaults.set(false, forKey: "userExists")
+            //performSegue(withIdentifier: "goToLogin", sender: self)
+            
+            //let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//            var VC = (self.storyboard?.instantiateViewController(withIdentifier: "Login"))!
+//            self.navigationController?.pushViewController(VC, animated: true)
+            
             print("Signing out................................")
         } catch let signOutError as NSError {
             
