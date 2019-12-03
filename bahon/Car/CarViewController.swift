@@ -9,36 +9,64 @@
 import UIKit
 import Firebase
 
-class CarViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class CarViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITabBarControllerDelegate, UISearchBarDelegate {
+    
+    
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    @IBOutlet weak var topOptions: UIView!
+    
     
     let userDefaults = UserDefaults.standard
 
-    
+    var hidesBarsOnSwipe: Bool?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tabBarController?.delegate = self
 
         if Auth.auth().currentUser != nil {
             
-            navigationItem .setLeftBarButton(nil, animated: false)
-            navigationItem.leftBarButtonItem?.title = "Profile"
-            
-            //loadView()
-            
-            self.loadView()
-        }
+            navigationItem.setLeftBarButton(nil, animated: false)
 
+            navigationItem.leftBarButtonItem?.title = "Profile"
+        }
+    }
+    
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         
-//        if Auth.auth().currentUser != nil {
-//
-//            navigationItem.leftBarButtonItem?.title = "Profile"
-//        }
+    }
+    
+    
+    
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         
+        if velocity.y > 0 {
+            
+            UIView.animate(withDuration: 0.5, delay: 0, options: UIView.AnimationOptions(), animations: {
+                
+                self.navigationController?.setNavigationBarHidden(true, animated: true)
+                
+            }, completion: nil)
+        }
+        else {
+            
+            UIView.animate(withDuration: 0.5, delay: 0, options: UIView.AnimationOptions(), animations: {
+                
+                self.navigationController?.setNavigationBarHidden(false, animated: true)
+                
+            }, completion: nil)
+        }
     }
     
     
@@ -69,19 +97,22 @@ class CarViewController: UIViewController, UITableViewDataSource, UITableViewDel
         
         let destinationVC = storyboard?.instantiateViewController(withIdentifier: "CarDetailsViewController") as! CarDetailsViewController
 
-        
         self.navigationController?.pushViewController(destinationVC, animated: true)
-        
-                
     }
     
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    
+    @IBAction func profileButton(_ sender: UIBarButtonItem) {
         
-        if segue.identifier == "signIn-addCar" {
+        if Auth.auth().currentUser != nil {
             
-            
+            performSegue(withIdentifier: "profile", sender: self)
         }
+        else{
+            
+            performSegue(withIdentifier: "signIn-addCar", sender: self)
+        }
+        
     }
     
     
@@ -100,7 +131,29 @@ class CarViewController: UIViewController, UITableViewDataSource, UITableViewDel
     }
     
     
+    @IBAction func searchButton(_ sender: UIButton) {
+        
+        //searchBar.isHidden = false
+    }
     
+    
+    
+    @IBAction func locationButton(_ sender: UIButton) {
+        
+        
+    }
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        
+        if tabBarItem.tag == 0 {
+            
+            
+        }
+        else if tabBarItem.tag == 1 {
+            
+        }
+        
+    }
     
     
     
@@ -190,3 +243,5 @@ class CarViewController: UIViewController, UITableViewDataSource, UITableViewDel
     */
 
 }
+
+

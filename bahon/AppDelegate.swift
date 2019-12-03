@@ -25,41 +25,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         
         Database.database().isPersistenceEnabled = true
-        
-        //setRootViewController()
-        
+                
         window?.makeKeyAndVisible()
-        //Switcher.updateRootVC()
             
         return true
-    }
-    
-    
-    
-    func setRootViewController() {
-                
-        if Auth.auth().currentUser == nil {  //user exist
-            
-            let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            
-            let vc = storyboard.instantiateViewController(withIdentifier: "LoginNav")
-            
-            self.window?.rootViewController = vc
-            
-            newViewController = vc
-            
-            //UIApplication.shared.keyWindow?.rootViewController = vc
-            
-            print("-----N---O--------U---S---E---R---1--- ")
-
-        }
-        else {
-            
-            print("-----U---S---E---R---------E---X---I---S---T------ ")
-            print((Auth.auth().currentUser?.uid)!)
-
-
-        }
     }
 
     
@@ -80,16 +49,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 
-extension AppDelegate {
-   static var shared: AppDelegate {
-      return UIApplication.shared.delegate as! AppDelegate
-   }
-var rootViewController: UIViewController {
-      return window!.rootViewController as! LoginViewController
-   }
-}
-
-
+//extension AppDelegate {
+//   static var shared: AppDelegate {
+//      return UIApplication.shared.delegate as! AppDelegate
+//   }
+//var rootViewController: UIViewController {
+//      return window!.rootViewController as! LoginViewController
+//   }
+//}
+//
+//
 
 //        if Auth.auth().currentUser != nil {
 //          var VC = self.storyboard?.instantiateViewController(withIdentifier: "Home") as! UITabBarController

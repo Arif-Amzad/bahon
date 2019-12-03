@@ -48,8 +48,8 @@ class LoginViewController: UIViewController {
                 
                 //self.userDefaults.set(true, forKey: "userExists")
                 
-                self.dismiss(animated: true, completion: nil)
-                //self.performSegue(withIdentifier: "backToCar", sender: self)
+                //self.dismiss(animated: true, completion: nil)
+                self.performSegue(withIdentifier: "afterSignIn", sender: self)
 
             }
             else {

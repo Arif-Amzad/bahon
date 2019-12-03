@@ -12,6 +12,8 @@
 		DD496CF52382CE3B007F654A /* VehicleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD496CF42382CE3B007F654A /* VehicleTableViewCell.swift */; };
 		DD496CFB2383C21B007F654A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD496CFA2383C21B007F654A /* LoginViewController.swift */; };
 		DD496CFE2383C657007F654A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD496CFD2383C657007F654A /* GoogleService-Info.plist */; };
+		DD6AE35F2396BB4000C79367 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6AE35E2396BB4000C79367 /* ProfileViewController.swift */; };
+		DD9FD76A23962A3900E42888 /* TopTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9FD76923962A3900E42888 /* TopTabBarController.swift */; };
 		DDAAC7E32383D9AF0016D6F7 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAAC7E22383D9AF0016D6F7 /* RegisterViewController.swift */; };
 		DDB48A30238D78EA00FEBAB9 /* LaunchScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB48A2F238D78EA00FEBAB9 /* LaunchScreenVC.swift */; };
 		DDCC785F238AD06F004E9695 /* CarDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC785E238AD06F004E9695 /* CarDetailsViewController.swift */; };
@@ -32,6 +34,8 @@
 		DD496CF42382CE3B007F654A /* VehicleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleTableViewCell.swift; sourceTree = "<group>"; };
 		DD496CFA2383C21B007F654A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DD496CFD2383C657007F654A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DD6AE35E2396BB4000C79367 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		DD9FD76923962A3900E42888 /* TopTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTabBarController.swift; sourceTree = "<group>"; };
 		DDAAC7E22383D9AF0016D6F7 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		DDB48A2F238D78EA00FEBAB9 /* LaunchScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenVC.swift; sourceTree = "<group>"; };
 		DDCC785E238AD06F004E9695 /* CarDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailsViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +94,7 @@
 			children = (
 				DDFDB39B2380FA8500027DDD /* Assets.xcassets */,
 				DD161A4D238D294200F4862D /* Switcher.swift */,
+				DD9FD76923962A3900E42888 /* TopTabBarController.swift */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -107,6 +112,7 @@
 			children = (
 				DD496CFA2383C21B007F654A /* LoginViewController.swift */,
 				DDAAC7E22383D9AF0016D6F7 /* RegisterViewController.swift */,
+				DD6AE35E2396BB4000C79367 /* ProfileViewController.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -270,7 +276,9 @@
 				DDCC785F238AD06F004E9695 /* CarDetailsViewController.swift in Sources */,
 				DD496CF52382CE3B007F654A /* VehicleTableViewCell.swift in Sources */,
 				DDAAC7E32383D9AF0016D6F7 /* RegisterViewController.swift in Sources */,
+				DD6AE35F2396BB4000C79367 /* ProfileViewController.swift in Sources */,
 				DD496CF32382CBB4007F654A /* CarViewController.swift in Sources */,
+				DD9FD76A23962A3900E42888 /* TopTabBarController.swift in Sources */,
 				DDB48A30238D78EA00FEBAB9 /* LaunchScreenVC.swift in Sources */,
 				DDFDB3932380FA8200027DDD /* AppDelegate.swift in Sources */,
 				DDCF19462385E44C0064EABD /* SceneDelegate.swift in Sources */,
