@@ -73,7 +73,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func signUpButton(_ sender: Any) {
         
-        performSegue(withIdentifier: "signIn2Up", sender: self)
+        //performSegue(withIdentifier: "signIn2Up", sender: self)
     }
     
     

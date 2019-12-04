@@ -20,9 +20,6 @@ class RegisterViewController: UIViewController {
     
     let userDefaults = UserDefaults.standard
     
-    let db = Database.database().reference()
-    
-    let currentUser = Auth.auth().currentUser!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,8 +37,12 @@ class RegisterViewController: UIViewController {
         Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
             
             if error == nil {
+                
+                let db = Database.database().reference()
+                
+                let currentUser = Auth.auth().currentUser!
             
-                self.db.child("users/\(self.currentUser.uid)/name").setValue(name)
+                db.child("users/\(currentUser.uid)/name").setValue(name)
                 
                 self.performSegue(withIdentifier: "afterSignUp", sender: self)
             }

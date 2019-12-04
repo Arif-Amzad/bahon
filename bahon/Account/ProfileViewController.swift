@@ -86,14 +86,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 }
                 else{
                     
-                    let alert = UIAlertController(title: "No internet Connection", message: "", preferredStyle: .alert)
-                    
-                    self.present(alert, animated: true)
-                    
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
 
-                        alert.dismiss(animated: true, completion: nil)
-                    }
                     
                     print("Image showing error\(String(describing: error))")
                 }
@@ -251,7 +244,14 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
 
 
 
-
+//let alert = UIAlertController(title: "No internet Connection", message: "", preferredStyle: .alert)
+//
+//self.present(alert, animated: true)
+//
+//DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+//
+//    alert.dismiss(animated: true, completion: nil)
+//}
 
 
 
