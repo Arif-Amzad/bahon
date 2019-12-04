@@ -12,11 +12,12 @@
 		DD496CF52382CE3B007F654A /* VehicleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD496CF42382CE3B007F654A /* VehicleTableViewCell.swift */; };
 		DD496CFB2383C21B007F654A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD496CFA2383C21B007F654A /* LoginViewController.swift */; };
 		DD496CFE2383C657007F654A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD496CFD2383C657007F654A /* GoogleService-Info.plist */; };
+		DD4C7FB423985A5400DBE6D4 /* CarDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4C7FB323985A5300DBE6D4 /* CarDetailsViewController.swift */; };
 		DD6AE35F2396BB4000C79367 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6AE35E2396BB4000C79367 /* ProfileViewController.swift */; };
 		DD9FD76A23962A3900E42888 /* TopTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9FD76923962A3900E42888 /* TopTabBarController.swift */; };
 		DDAAC7E32383D9AF0016D6F7 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAAC7E22383D9AF0016D6F7 /* RegisterViewController.swift */; };
 		DDB48A30238D78EA00FEBAB9 /* LaunchScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB48A2F238D78EA00FEBAB9 /* LaunchScreenVC.swift */; };
-		DDCC785F238AD06F004E9695 /* CarDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC785E238AD06F004E9695 /* CarDetailsViewController.swift */; };
+		DDCC785F238AD06F004E9695 /* AddCarForRentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCC785E238AD06F004E9695 /* AddCarForRentVC.swift */; };
 		DDCF19462385E44C0064EABD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDCF19452385E44C0064EABD /* SceneDelegate.swift */; };
 		DDFDB3932380FA8200027DDD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFDB3922380FA8200027DDD /* AppDelegate.swift */; };
 		DDFDB39A2380FA8200027DDD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDFDB3982380FA8200027DDD /* Main.storyboard */; };
@@ -34,11 +35,12 @@
 		DD496CF42382CE3B007F654A /* VehicleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleTableViewCell.swift; sourceTree = "<group>"; };
 		DD496CFA2383C21B007F654A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		DD496CFD2383C657007F654A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DD4C7FB323985A5300DBE6D4 /* CarDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailsViewController.swift; sourceTree = "<group>"; };
 		DD6AE35E2396BB4000C79367 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		DD9FD76923962A3900E42888 /* TopTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTabBarController.swift; sourceTree = "<group>"; };
 		DDAAC7E22383D9AF0016D6F7 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		DDB48A2F238D78EA00FEBAB9 /* LaunchScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenVC.swift; sourceTree = "<group>"; };
-		DDCC785E238AD06F004E9695 /* CarDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailsViewController.swift; sourceTree = "<group>"; };
+		DDCC785E238AD06F004E9695 /* AddCarForRentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCarForRentVC.swift; sourceTree = "<group>"; };
 		DDCF19452385E44C0064EABD /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DDFDB38F2380FA8200027DDD /* bahon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bahon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDFDB3922380FA8200027DDD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -84,7 +86,8 @@
 			children = (
 				DD496CF22382CBB4007F654A /* CarViewController.swift */,
 				DD496CF42382CE3B007F654A /* VehicleTableViewCell.swift */,
-				DDCC785E238AD06F004E9695 /* CarDetailsViewController.swift */,
+				DDCC785E238AD06F004E9695 /* AddCarForRentVC.swift */,
+				DD4C7FB323985A5300DBE6D4 /* CarDetailsViewController.swift */,
 			);
 			path = Car;
 			sourceTree = "<group>";
@@ -272,8 +275,9 @@
 			files = (
 				DD161A4E238D294200F4862D /* Switcher.swift in Sources */,
 				DD496CFB2383C21B007F654A /* LoginViewController.swift in Sources */,
+				DD4C7FB423985A5400DBE6D4 /* CarDetailsViewController.swift in Sources */,
 				DDFDB3BA2381170300027DDD /* CategoryVC.swift in Sources */,
-				DDCC785F238AD06F004E9695 /* CarDetailsViewController.swift in Sources */,
+				DDCC785F238AD06F004E9695 /* AddCarForRentVC.swift in Sources */,
 				DD496CF52382CE3B007F654A /* VehicleTableViewCell.swift in Sources */,
 				DDAAC7E32383D9AF0016D6F7 /* RegisterViewController.swift in Sources */,
 				DD6AE35F2396BB4000C79367 /* ProfileViewController.swift in Sources */,

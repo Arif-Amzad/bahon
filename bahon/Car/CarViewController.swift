@@ -11,10 +11,8 @@ import Firebase
 
 class CarViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITabBarControllerDelegate, UISearchBarDelegate {
     
+
     
-    @IBOutlet weak var searchBar: UISearchBar!
-    
-    @IBOutlet weak var topOptions: UIView!
     
     
     let userDefaults = UserDefaults.standard
@@ -97,6 +95,7 @@ class CarViewController: UIViewController, UITableViewDataSource, UITableViewDel
         
         let destinationVC = storyboard?.instantiateViewController(withIdentifier: "CarDetailsViewController") as! CarDetailsViewController
 
+        
         self.navigationController?.pushViewController(destinationVC, animated: true)
     }
     

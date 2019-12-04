@@ -8,7 +8,6 @@
 
 import UIKit
 import Firebase
-import FirebaseFirestore
 
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -27,43 +26,41 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     @IBOutlet weak var imageButtonOutlet: UIButton!
     
+    @IBOutlet weak var progressBar: UIProgressView!
+    
     var count: Int = 0
     
     let db = Database.database().reference().child("users")
     
-    let currentUser = Auth.auth().currentUser
+    let currentUser = Auth.auth().currentUser!
     
     let imagePicker = UIImagePickerController()
+    
+    let storeRef = Storage.storage().reference()
+
+    var userDefaults = UserDefaults.standard
+    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadProfile()
-        
         imagePicker.delegate = self
         
-        imagePicker.allowsEditing = false
+        loadProfileSettings()
         
-        addressBox.isUserInteractionEnabled = false
-        
-        phoneBox.isUserInteractionEnabled = false
+        loadProfile()
     }
     
     
-    
+    //MARK:- Getting ready the view
     func loadProfile(){
-        
-        let uid = (Auth.auth().currentUser?.uid)!
         
         let email = Auth.auth().currentUser?.email
         
-        let db = Database.database().reference().child("users").child(uid)
-        
-        db.observeSingleEvent(of: .value) { (snapshot) in
+        db.child(currentUser.uid).observeSingleEvent(of: .value) { (snapshot) in
             
             let value = snapshot.value as? NSDictionary
-            
-            print(value!)
             
             self.userName.text = value!["name"] as? String
             
@@ -72,12 +69,64 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             self.addressBox.text = value!["address"] as? String
             
             self.phoneBox.text = value!["phone"] as? String
+            
+            let profileImageRef = self.storeRef.child("images/profileImage/\(self.currentUser.uid).png")
+            
+            profileImageRef.getData(maxSize: 1 * 1024 * 1024) { (data, error) in
+                
+                if error == nil {
+                    
+                    let image = UIImage(data: data!)
+                    
+                    self.imageButtonOutlet.setImage(image, for: .normal)
+                    
+                    //self.imageButtonOutlet.setBackgroundImage(image, for: .normal)
+                    
+                    print("Image showed")
+                }
+                else{
+                    
+                    let alert = UIAlertController(title: "No internet Connection", message: "", preferredStyle: .alert)
+                    
+                    self.present(alert, animated: true)
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+
+                        alert.dismiss(animated: true, completion: nil)
+                    }
+                    
+                    print("Image showing error\(String(describing: error))")
+                }
+            }
         }
-        
     }
     
     
-    func defaultSourceSelection(){
+    
+    func loadProfileSettings(){
+        
+        imagePicker.allowsEditing = false
+        
+        addressBox.isUserInteractionEnabled = false
+        
+        phoneBox.isUserInteractionEnabled = false
+        
+        imageButtonOutlet.layer.cornerRadius = 0
+        
+        imageButtonOutlet.layer.borderWidth = 3
+        
+        imageButtonOutlet.layer.borderColor = UIColor.darkGray.cgColor
+        
+        imageButtonOutlet.frame = CGRect(x: 120, y: 120, width: 120, height: 120)
+        
+        imageButtonOutlet.clipsToBounds = true
+        
+        imageButtonOutlet.layer.cornerRadius = 0.5 * imageButtonOutlet.bounds.size.width
+    }
+    
+    
+    //MARK:- Default source selection, camera or gallery
+    func sourceSelectionForUploadingPhoto(){
         
         if !UIImagePickerController.isSourceTypeAvailable(.camera) {
             
@@ -95,61 +144,64 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             
             imagePicker.sourceType = .camera
         }
-        
-    }
-    
-    
-    
-    func uploadMedia(completion: @escaping (_ url: String?) -> Void) {
-        
-        
-
     }
     
         
-        
+    //MARK:- Picking image for profile photo
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
-        let imageName = UUID().uuidString
-        
-        let storageRef = Storage.storage().reference().child("\(imageName).png")
-        
+                
         if let userPickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             
             imageButtonOutlet.setImage(userPickedImage, for: .normal)
             
+            let userProfileRef = storeRef.child("images/profileImage")
             
-            if let uploadData = userPickedImage.pngData() {
-                 
-                storageRef.putData(uploadData, metadata: nil) { (metadata, error) in
+            if let data = userPickedImage.pngData() {
+                
+                let uploadUserProfileTask = userProfileRef.child("\(currentUser.uid).png").putData(data, metadata: nil) { (metadata, error) in
+                    
                     if error != nil {
-                         
-                        print("error")
+                        
+                        print("Error occured \(String(describing: error))")
+                    }
+                    
+//                    guard let metadata = metadata else { print("Error occured\(error)")
+//                        return
+//                    }
+                    //print("download url for profile is \(metadata)")
+                }
+                
+                _ = uploadUserProfileTask.observe(.progress) { (snapshot) in
+                    
+                    let percentComplete =  Double(snapshot.progress!.completedUnitCount) / Double(snapshot.progress!.totalUnitCount)
+                    
+                    self.progressBar.progress = Float(percentComplete)
+                    
+                    if Float(percentComplete) < 1.0 {
+                        
+                        self.navigationController?.navigationBar.isHidden = true
                     }
                     else {
-                         
-                         print("===========metaData \(metadata)")
+                        
+                        self.navigationController?.navigationBar.isHidden = false
                     }
+                    print(percentComplete)
                 }
-             }
-            
+            }
             print(info)
             
             imagePicker.dismiss(animated: true, completion: nil)
         }
-        
-        
     }
     
     
-    
+    //MARK:- Buttons action of the view
     @IBAction func addImageButton(_ sender: Any) {
         
         //defaultSourceSelection()
         
         present(imagePicker, animated: true, completion: nil)
     }
-    
     
     
     
@@ -164,9 +216,12 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             addressBox.isUserInteractionEnabled = true
             
             phoneBox.isUserInteractionEnabled = true
+            
+            addressBox.borderStyle = .roundedRect
+            
+            phoneBox.borderStyle = .roundedRect
 
             count = count + 1
-            
         }
         else {
             
@@ -177,22 +232,31 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             addressBox.isUserInteractionEnabled = false
             
             phoneBox.isUserInteractionEnabled = false
+            
+            addressBox.borderStyle = .none
+            
+            phoneBox.borderStyle = .none
 
             count = count + 1
             
-            db.child("\(currentUser!.uid)/phone").setValue(phoneBox.text)
+            db.child("\(currentUser.uid)/phone").setValue(phoneBox.text)
             
-            db.child("\(currentUser!.uid)/address").setValue(addressBox.text)
+            db.child("\(currentUser.uid)/address").setValue(addressBox.text)
         }
-        
-        
-        
-        
-        
     }
+}
     
-    
-    
+
+
+
+
+
+
+
+
+
+
+
 
     /*
     // MARK: - Navigation
@@ -204,4 +268,4 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     */
 
-}
+

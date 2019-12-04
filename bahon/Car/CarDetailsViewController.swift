@@ -2,7 +2,7 @@
 //  CarDetailsViewController.swift
 //  bahon
 //
-//  Created by Arif Amzad on 24/11/19.
+//  Created by Arif Amzad on 5/12/19.
 //  Copyright © 2019 Arif Amzad. All rights reserved.
 //
 
@@ -12,17 +12,8 @@ class CarDetailsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
 
         // Do any additional setup after loading the view.
-
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-
-
     }
     
 

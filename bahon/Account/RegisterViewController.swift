@@ -20,6 +20,10 @@ class RegisterViewController: UIViewController {
     
     let userDefaults = UserDefaults.standard
     
+    let db = Database.database().reference()
+    
+    let currentUser = Auth.auth().currentUser!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,24 +40,9 @@ class RegisterViewController: UIViewController {
         Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
             
             if error == nil {
+            
+                self.db.child("users/\(self.currentUser.uid)/name").setValue(name)
                 
-                //self.userDefaults.set(true, forKey: "userExist")
-                
-                let currentUserEmail = Auth.auth().currentUser?.email
-                
-                let db = Database.database().reference()
-                
-                let uid = Auth.auth().currentUser?.uid
-                
-                //db.child("users").setValue(["userEmail": currentUserEmail])
-                
-                //db.child("users").child(uid!).setValue(["name": name])
-                db.child("users/\(uid!)/name").setValue(name)
-                
-                //db.child("users/\(uid!)/phone").setValue("")
-                
-                //db.child("users/\(uid!)/address").setValue("")
-
                 self.performSegue(withIdentifier: "afterSignUp", sender: self)
             }
             else {
@@ -64,11 +53,7 @@ class RegisterViewController: UIViewController {
                 
                  self.present(alertController, animated: true, completion: nil)
             }
-
         }
-        
-        //let dVC = storyboard?.instantiateViewController(withIdentifier: "CarViewControllerID") as! CarViewController
-        //self.navigationController?.pushViewController(dVC, animated: true)
     }
     
     func sendDataToDatabase(){
