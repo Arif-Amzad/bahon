@@ -21,6 +21,8 @@ class AddCarForRentVC: UIViewController, UIImagePickerControllerDelegate, UINavi
     
     @IBOutlet weak var location: UITextField!
     
+    @IBOutlet weak var rent: UITextField!
+    
     @IBOutlet weak var progressBar: UIProgressView!
     
     let currentUser = Auth.auth().currentUser!
@@ -36,8 +38,7 @@ class AddCarForRentVC: UIViewController, UIImagePickerControllerDelegate, UINavi
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.navigationController?.setNavigationBarHidden(false, animated: true)
-
+        
         imagePicker.delegate = self
         
         viewSetup(colour: UIColor.darkGray, borderWidth: 1, cornerRadius: 5)
@@ -50,7 +51,6 @@ class AddCarForRentVC: UIViewController, UIImagePickerControllerDelegate, UINavi
         print("=")
         print("=")
         print("=")
-        print(userPickedImage)
         print("=")
         print("=")
         print("=")
@@ -92,6 +92,12 @@ class AddCarForRentVC: UIViewController, UIImagePickerControllerDelegate, UINavi
         
         location.layer.cornerRadius = cornerRadius
         
+        rent.layer.borderColor = colour.cgColor
+        
+        rent.layer.borderWidth = borderWidth
+        
+        rent.layer.cornerRadius = cornerRadius
+        
         anyMessage.layer.borderColor = colour.cgColor
             
         anyMessage.layer.borderWidth = borderWidth
@@ -131,7 +137,9 @@ class AddCarForRentVC: UIViewController, UIImagePickerControllerDelegate, UINavi
             
             print(info)
             
-            userPickedImage = userPicked
+            userPickedImage = userPicked.resizeWithWidth(width: 359)!
+            
+            carImage.backgroundColor = UIColor.white
             
             imagePicker.dismiss(animated: true, completion: nil)
         }
@@ -147,13 +155,19 @@ class AddCarForRentVC: UIViewController, UIImagePickerControllerDelegate, UINavi
     
     
     @IBAction func submitButton(_ sender: UIButton) {
+        
+        let db = Database.database().reference().child("carsForRentAll")
+        
+        db.removeAllObservers()
                 
-        if !carModel.text!.isEmpty && !regYear.text!.isEmpty && !location.text!.isEmpty && userPickedImage != nil {
+        if !carModel.text!.isEmpty && !regYear.text!.isEmpty && !location.text!.isEmpty && !rent.text!.isEmpty && userPickedImage != nil {
             
             
             let uuid = UUID().uuidString
             
-            let locRef = self.db.child("carsForRent/\(self.currentUser.uid)/\(uuid)")
+            let myCarsLoc = self.db.child("myCarsForRent/\(self.currentUser.uid)/\(uuid)")
+            
+            let allRentCarLoc = self.db.child("carsForRentAll/\(uuid)")
             
             let carImageRef = storeRef.child("images/carImages")
             
@@ -181,29 +195,44 @@ class AddCarForRentVC: UIViewController, UIImagePickerControllerDelegate, UINavi
                         
                         self.navigationController?.navigationBar.isHidden = false
                         
-                        self.loadView()
                     }
                     print(percentComplete)
                 }
             }
             
-            locRef.child("carModel").setValue(carModel.text)
-            
-            locRef.child("regYear").setValue(regYear.text)
-            
-            locRef.child("location").setValue(location.text)
-            
-            locRef.child("message").setValue(anyMessage.text)
-            
             showAlert(title: "Successful", message: "", style: 1)
             
+            myCarsLoc.child("carModel").setValue(carModel.text)
             
+            myCarsLoc.child("regYear").setValue(regYear.text)
             
+            myCarsLoc.child("location").setValue(location.text)
+            
+            myCarsLoc.child("message").setValue(anyMessage.text)
+            
+            myCarsLoc.child("availability").setValue("available")
+
+            myCarsLoc.child("rent").setValue(rent.text)
+            
+            allRentCarLoc.child("carModel").setValue(carModel.text)
+            
+            allRentCarLoc.child("regYear").setValue(regYear.text)
+            
+            allRentCarLoc.child("location").setValue(location.text)
+            
+            allRentCarLoc.child("message").setValue(anyMessage.text)
+
+            allRentCarLoc.child("availability").setValue("available")
+            
+            allRentCarLoc.child("rent").setValue(rent.text)
             
             
             userPickedImage = nil
             
+            self.loadView()
+            
             viewSetup(colour: UIColor.darkGray, borderWidth: 1, cornerRadius: 5)
+            
             
         }
         else{
@@ -238,4 +267,54 @@ class AddCarForRentVC: UIViewController, UIImagePickerControllerDelegate, UINavi
     }
     */
 
+}
+
+
+
+
+extension UIImage {
+    
+    func resizeWithPercent(percentage: CGFloat) -> UIImage? {
+        
+        let imageView = UIImageView(frame: CGRect(origin: .zero, size: CGSize(width: size.width * percentage, height: size.height * percentage)))
+        
+        imageView.contentMode = .scaleAspectFit
+        
+        imageView.image = self
+        
+        UIGraphicsBeginImageContextWithOptions(imageView.bounds.size, false, scale)
+        
+        guard let context = UIGraphicsGetCurrentContext() else { return nil }
+        
+        imageView.layer.render(in: context)
+        
+        guard let result = UIGraphicsGetImageFromCurrentImageContext() else { return nil }
+        
+        UIGraphicsEndImageContext()
+        
+        return result
+    }
+    
+    
+    
+    func resizeWithWidth(width: CGFloat) -> UIImage? {
+        
+        let imageView = UIImageView(frame: CGRect(origin: .zero, size: CGSize(width: width, height: CGFloat(ceil(width/size.width * size.height)))))
+        
+        imageView.contentMode = .scaleAspectFit
+        
+        imageView.image = self
+        
+        UIGraphicsBeginImageContextWithOptions(imageView.bounds.size, false, scale)
+        
+        guard let context = UIGraphicsGetCurrentContext() else { return nil }
+        
+        imageView.layer.render(in: context)
+        
+        guard let result = UIGraphicsGetImageFromCurrentImageContext() else { return nil }
+        
+        UIGraphicsEndImageContext()
+        
+        return result
+    }
 }

@@ -11,31 +11,42 @@ import Firebase
 
 class CarViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITabBarControllerDelegate, UISearchBarDelegate {
     
-
     
+    @IBOutlet weak var carTableView: UITableView!
     
+    var carListArray: [VehicleList] = [VehicleList]()
     
     let userDefaults = UserDefaults.standard
 
     var hidesBarsOnSwipe: Bool?
+    
+    var refreshControl = UIRefreshControl()
+    
+    var imageArray = [UIImage]()
+    
+    var imageVar: UIImage!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tabBarController?.delegate = self
+        
+        carTableView.register(UINib(nibName: "VehicleListViewCell", bundle: nil), forCellReuseIdentifier: "VehicleListViewCellXIB")
+        
+        retrieveData()
+        
+           refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+           refreshControl.addTarget(self, action: #selector(refresh(sender:)), for: UIControl.Event.valueChanged)
+           carTableView.addSubview(refreshControl) // not required when using UITableViewController
+        
 
-        if Auth.auth().currentUser != nil {
-            
-            navigationItem.setLeftBarButton(nil, animated: false)
-
-            navigationItem.leftBarButtonItem?.title = "Profile"
-        }
+        
     }
     
     
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        //super.viewWillAppear(animated)
+        
         
     }
     
@@ -46,27 +57,15 @@ class CarViewController: UIViewController, UITableViewDataSource, UITableViewDel
     }
     
     
-    
-    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+    @objc func refresh(sender:AnyObject) {
+       // Code to refresh table view
         
-        if velocity.y > 0 {
-            
-            UIView.animate(withDuration: 0.5, delay: 0, options: UIView.AnimationOptions(), animations: {
-                
-                self.navigationController?.setNavigationBarHidden(true, animated: true)
-                
-            }, completion: nil)
-        }
-        else {
-            
-            UIView.animate(withDuration: 0.5, delay: 0, options: UIView.AnimationOptions(), animations: {
-                
-                self.navigationController?.setNavigationBarHidden(false, animated: true)
-                
-            }, completion: nil)
-        }
+        carListArray.removeAll()
+        
+        retrieveData()
+        
+        refreshControl.endRefreshing()
     }
-    
     
 
     // MARK: - Table view data source
@@ -77,16 +76,25 @@ class CarViewController: UIViewController, UITableViewDataSource, UITableViewDel
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return 10
+        return carListArray.count
     }
+    
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CarCell") as! VehicleTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "VehicleListViewCellXIB", for: indexPath) as! VehicleListViewCell
         
-        cell.vehicleName.text = "Toyota Premio"
+
+        cell.vehicleName.text = carListArray[indexPath.row].vehicleName
         
-        cell.vehicleRegYear.text = "2018"
+        cell.vehicleRegYear.text = carListArray[indexPath.row].vehicleRegYear
+        
+        cell.availavility.text = carListArray[indexPath.row].availability
+        
+        cell.vehicleImage.image = carListArray[indexPath.row].vehicleImgage
+
+        //cell.vehicleImage.image = imageArray[indexPath.row]
         
         return cell
     }
@@ -94,11 +102,87 @@ class CarViewController: UIViewController, UITableViewDataSource, UITableViewDel
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let destinationVC = storyboard?.instantiateViewController(withIdentifier: "CarDetailsViewController") as! CarDetailsViewController
+        
+        destinationVC.carImageimg = carListArray[indexPath.row].vehicleImgage
+        
+        destinationVC.carModelString = carListArray[indexPath.row].vehicleName
+        
+        destinationVC.locationString = carListArray[indexPath.row].location
+        
+        destinationVC.messageString = carListArray[indexPath.row].message
+        
+        destinationVC.rentString = carListArray[indexPath.row].rent
+        
 
+        destinationVC.regYearString = carListArray[indexPath.row].vehicleRegYear
         
         self.navigationController?.pushViewController(destinationVC, animated: true)
     }
     
+    
+    func retrieveData() {
+        
+        let db = Database.database().reference().child("carsForRentAll")
+        
+        let storeCarRef = Storage.storage().reference()
+        
+        db.observe(.childAdded) { (snapshot) in
+            
+            let snapshotValue = snapshot.value as! Dictionary<String, String>
+            
+            let uuid = snapshot.key
+            
+            print("========\(uuid)========")
+            
+            let carList = VehicleList()
+            
+            storeCarRef.child("images/carImages/\(uuid).png").getData(maxSize: 1 * 1024 * 1024) { (data, error) in
+                
+                if error == nil {
+                    
+                    let image = UIImage(data: data!)
+                        
+                    carList.vehicleImgage = image!
+                    
+                    //self.imageArray.append(image!)
+                    
+                    print(image as Any)
+                    
+                    print("Image showedd")
+                }
+                else{
+                                    
+                    print("Image showing error ======= \(String(describing: error))")
+                }
+            }
+            
+            carList.vehicleName = snapshotValue["carModel"]!
+
+            carList.vehicleRegYear = snapshotValue["regYear"]!
+            
+            carList.availability = snapshotValue["availability"]!
+            
+            carList.location = snapshotValue["location"]!
+            
+            carList.rent = snapshotValue["rent"]!
+
+            carList.message = snapshotValue["message"]!
+
+            //carList.vehicleImgage =
+            
+            self.carListArray.append(carList)
+            
+//            DispatchQueue.main.async {
+//
+//                self.carTableView.reloadData()
+//            }
+            
+            self.carTableView.reloadData()
+            
+            //db.removeAllObservers()
+        }
+    }
+
     
     
     @IBAction func profileButton(_ sender: UIBarButtonItem) {
@@ -142,48 +226,48 @@ class CarViewController: UIViewController, UITableViewDataSource, UITableViewDel
         
     }
     
-    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+    
+    
+//    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+//
+//        if tabBarItem.tag == 0 {
+//
+//
+//        }
+//        else if tabBarItem.tag == 1 {
+//
+//        }
+//
+//    }
+    
+    
+    
+    
+    
+    
+    
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         
-        if tabBarItem.tag == 0 {
+        if velocity.y > 0 {
             
-            
+            UIView.animate(withDuration: 0.5, delay: 0, options: UIView.AnimationOptions(), animations: {
+                
+                self.navigationController?.setNavigationBarHidden(true, animated: true)
+                
+            }, completion: nil)
         }
-        else if tabBarItem.tag == 1 {
+        else {
             
-        }
-        
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    @IBAction func signout(_ sender: UIButton) {
-        
-        let firebaseAuth = Auth.auth()
-        do {
-          try firebaseAuth.signOut()
-            
-            self.userDefaults.set(false, forKey: "userExists")
-            //performSegue(withIdentifier: "goToLogin", sender: self)
-            
-            //let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//            var VC = (self.storyboard?.instantiateViewController(withIdentifier: "Login"))!
-//            self.navigationController?.pushViewController(VC, animated: true)
-            
-            print("Signing out................................")
-        } catch let signOutError as NSError {
-            
-          print ("Error signing out: %@", signOutError)
+            UIView.animate(withDuration: 0.5, delay: 0, options: UIView.AnimationOptions(), animations: {
+                
+                self.navigationController?.setNavigationBarHidden(false, animated: true)
+                
+            }, completion: nil)
         }
     }
+    
+
+    
     
     
     /*
@@ -242,5 +326,6 @@ class CarViewController: UIViewController, UITableViewDataSource, UITableViewDel
     */
 
 }
+
 
 

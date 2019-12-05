@@ -18,8 +18,8 @@ class TopTabBarController: UITabBarController {
 
         // Do any additional setup after loading the view.
         
-        UIApplication.shared.statusBarFrame.size.height
-        TopTab.frame = CGRect(x: 0, y:  TopTab.frame.size.height, width: TopTab.frame.size.width, height: TopTab.frame.size.height)
+//        UIApplication.shared.statusBarFrame.size.height
+//        TopTab.frame = CGRect(x: 0, y:  TopTab.frame.size.height, width: TopTab.frame.size.width, height: TopTab.frame.size.height)
     }
     
 

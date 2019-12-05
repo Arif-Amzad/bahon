@@ -1,14 +1,14 @@
 //
-//  LaunchScreenVC.swift
+//  TruckViewController.swift
 //  bahon
 //
-//  Created by Arif Amzad on 26/11/19.
+//  Created by Arif Amzad on 5/12/19.
 //  Copyright © 2019 Arif Amzad. All rights reserved.
 //
 
 import UIKit
 
-class LaunchScreenVC: UIViewController {
+class TruckViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

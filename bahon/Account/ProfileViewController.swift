@@ -40,7 +40,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
 
     var userDefaults = UserDefaults.standard
     
-
+    var viewc = AddCarForRentVC()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +48,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         imagePicker.delegate = self
         
         loadProfileSettings()
+        
+        
         
         loadProfile()
     }
@@ -94,7 +96,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
     }
     
-    
+
     
     func loadProfileSettings(){
         
@@ -149,7 +151,9 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             
             let userProfileRef = storeRef.child("images/profileImage")
             
-            if let data = userPickedImage.pngData() {
+            let resizedImage = userPickedImage.resizeWithWidth(width: 259)
+            
+            if let data = resizedImage!.pngData() {
                 
                 let uploadUserProfileTask = userProfileRef.child("\(currentUser.uid).png").putData(data, metadata: nil) { (metadata, error) in
                     
@@ -239,6 +243,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
 }
     
+
 
 
 
