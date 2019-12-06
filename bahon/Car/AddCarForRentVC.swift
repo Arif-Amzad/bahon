@@ -202,6 +202,8 @@ class AddCarForRentVC: UIViewController, UIImagePickerControllerDelegate, UINavi
             
             showAlert(title: "Successful", message: "", style: 1)
             
+            myCarsLoc.child("folder").setValue(uuid)
+            
             myCarsLoc.child("carModel").setValue(carModel.text)
             
             myCarsLoc.child("regYear").setValue(regYear.text)
@@ -213,6 +215,8 @@ class AddCarForRentVC: UIViewController, UIImagePickerControllerDelegate, UINavi
             myCarsLoc.child("availability").setValue("available")
 
             myCarsLoc.child("rent").setValue(rent.text)
+            
+            allRentCarLoc.child("folder").setValue(uuid)
             
             allRentCarLoc.child("carModel").setValue(carModel.text)
             

@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import SwipeCellKit
 
-class VehicleListViewCell: UITableViewCell {
+class VehicleListViewCell:  UITableViewCell{
     
     
     @IBOutlet weak var vehicleImage: UIImageView!

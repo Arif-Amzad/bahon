@@ -10,7 +10,7 @@ import UIKit
 
 class VehicleList {
     
-    var vehicleImgage: UIImage!
+    var vehicleImgage: UIImage?
     
     var vehicleName: String = ""
     
@@ -23,4 +23,6 @@ class VehicleList {
     var rent: String = ""
     
     var message: String = ""
+    
+    var folder: String = ""
 }
