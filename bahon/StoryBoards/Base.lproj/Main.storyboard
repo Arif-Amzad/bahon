@@ -568,7 +568,6 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rd7-We-pji">
                                 <rect key="frame" x="0.0" y="328.5" width="375" height="10"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="375" id="r8k-6x-mWQ"/>
                                     <constraint firstAttribute="height" constant="10" id="zKt-Jc-0g4"/>
