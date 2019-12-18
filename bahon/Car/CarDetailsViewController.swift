@@ -101,7 +101,7 @@ class CarDetailsViewController: UIViewController {
         
         let alert = UIAlertController(title: "Contact with Owner", message: "This is his working time, you can leave a message", preferredStyle: .alert)
         
-        let callAction = UIAlertAction(title: "Message now", style: .default, handler: { UIAlertAction in self.messageNow(phoneNumber: "01521320979")
+        let callAction = UIAlertAction(title: "Message now", style: .default, handler: { UIAlertAction in self.messageNow(phoneNumber: "")
             
         })
         

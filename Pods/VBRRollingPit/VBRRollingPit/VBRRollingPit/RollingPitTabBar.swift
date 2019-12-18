@@ -176,7 +176,7 @@ extension CGFloat {
     
     private lazy var backgroundMask : CAShapeLayer = {
         let result = CAShapeLayer()
-        result.fillRule = kCAFillRuleEvenOdd
+        result.fillRule = CAShapeLayerFillRule.evenOdd
         return result
     }()
 
@@ -247,10 +247,10 @@ extension CGFloat {
         animation.duration = 1
 //        animation.beginTime = CACurrentMediaTime() + 2
         animation.toValue = toVal
-        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
         
         animation.isRemovedOnCompletion = false
-        animation.fillMode = kCAFillModeForwards
+        animation.fillMode = CAMediaTimingFillMode.forwards
         return animation
     }
     

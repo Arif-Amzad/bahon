@@ -287,11 +287,6 @@ PODS:
     - nanopb/encode (= 0.3.9011)
   - nanopb/decode (0.3.9011)
   - nanopb/encode (0.3.9011)
-  - Realm (3.20.0):
-    - Realm/Headers (= 3.20.0)
-  - Realm/Headers (3.20.0)
-  - RealmSwift (3.20.0):
-    - Realm (= 3.20.0)
   - SwipeCellKit (2.7.1)
   - VBRRollingPit (1.0.1)
 
@@ -301,7 +296,6 @@ DEPENDENCIES:
   - Firebase/Database
   - Firebase/Firestore
   - Firebase/Storage
-  - RealmSwift
   - SwipeCellKit
   - VBRRollingPit
 
@@ -329,8 +323,6 @@ SPEC REPOS:
     - GTMSessionFetcher
     - leveldb-library
     - nanopb
-    - Realm
-    - RealmSwift
     - SwipeCellKit
     - VBRRollingPit
 
@@ -357,11 +349,9 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 43b8b64263023d4f32caa0b40f4c8bfa3c5f36d8
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
-  Realm: 8b2ca5bc6479a91f379b6b42b5922e396cd5ba5a
-  RealmSwift: 1949ef26a279e1845bd51d591b9103adfcd121df
   SwipeCellKit: 3972254a826da74609926daf59b08d6c72e619ea
   VBRRollingPit: 62a79cc663aeea6a196878b3a907056617f96b6a
 
-PODFILE CHECKSUM: 460b7db251ca9647973ef0ab938bb27efe1bb3e4
+PODFILE CHECKSUM: 398304a1a06d7a3002fdc3f3bdf03ce5944e0e9e
 
 COCOAPODS: 1.8.4

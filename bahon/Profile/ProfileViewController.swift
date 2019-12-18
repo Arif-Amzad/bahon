@@ -59,7 +59,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         if segue.identifier == "myCars" {
             
-            let vc = storyboard?.instantiateViewController(withIdentifier: "MyVehicleTableVC") as! MyVehicleTableVC
+            //let vc = storyboard?.instantiateViewController(withIdentifier: "MyVehicleTableVC") as! MyVehicleTableVC
             
             //vc.currentUserUid.text = currentUser.uid
         }

@@ -8,7 +8,7 @@
 
 import UIKit
 import SwipeCellKit
-import RealmSwift
+//import RealmSwift
 import Firebase
 
 class MyVehicleTableVC: UITableViewController {
@@ -17,7 +17,7 @@ class MyVehicleTableVC: UITableViewController {
     
     var refresh = UIRefreshControl()
     
-    let realm = try! Realm()
+    //let realm = try! Realm()
     
     var carListArray = [VehicleList]()
     
@@ -212,30 +212,32 @@ class MyVehicleTableVC: UITableViewController {
                                         
                         print("Image showing error ======= \(String(describing: error))")
                     }
+                    
+                    carList.vehicleName = snapshotValue["carModel"]!
+
+                    carList.vehicleRegYear = snapshotValue["regYear"]!
+                    
+                    carList.availability = snapshotValue["availability"]!
+                    
+                    carList.location = snapshotValue["location"]!
+                    
+                    carList.rent = snapshotValue["rent"]!
+
+                    carList.message = snapshotValue["message"]!
+                    
+                    carList.folder = snapshotValue["folder"]!
+                    
+                    self.carListArray.append(carList)
+                    
+        //            DispatchQueue.main.async {
+        //
+        //                self.carTableView.reloadData()
+        //            }
+                    
+                    self.tableView.reloadData()
+
                 }
                 
-                carList.vehicleName = snapshotValue["carModel"]!
-
-                carList.vehicleRegYear = snapshotValue["regYear"]!
-                
-                carList.availability = snapshotValue["availability"]!
-                
-                carList.location = snapshotValue["location"]!
-                
-                carList.rent = snapshotValue["rent"]!
-
-                carList.message = snapshotValue["message"]!
-                
-                carList.folder = snapshotValue["folder"]!
-                
-                self.carListArray.append(carList)
-                
-    //            DispatchQueue.main.async {
-    //
-    //                self.carTableView.reloadData()
-    //            }
-                
-                self.tableView.reloadData()
                 
                 //db.removeAllObservers()
 

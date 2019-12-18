@@ -20,7 +20,7 @@ class CarViewController: UIViewController, UITableViewDataSource, UITableViewDel
 
     var hidesBarsOnSwipe: Bool?
     
-    var refreshControl = UIRefreshControl()
+    //var refreshControl = UIRefreshControl()
     
 
     override func viewDidLoad() {
@@ -32,11 +32,11 @@ class CarViewController: UIViewController, UITableViewDataSource, UITableViewDel
         
         retrieveData()
         
-        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
-        
-        refreshControl.addTarget(self, action: #selector(refresh(sender:)), for: UIControl.Event.valueChanged)
-        
-        carTableView.addSubview(refreshControl)
+//        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+//
+//        refreshControl.addTarget(self, action: #selector(refresh(sender:)), for: UIControl.Event.valueChanged)
+//
+//        carTableView.addSubview(refreshControl)
     }
     
     
@@ -52,14 +52,14 @@ class CarViewController: UIViewController, UITableViewDataSource, UITableViewDel
     }
     
     
-    @objc func refresh(sender:AnyObject) {
-        
-        carListArray.removeAll()
-        
-        retrieveData()
-        
-        refreshControl.endRefreshing()
-    }
+//    @objc func refresh(sender:AnyObject) {
+//
+//        carListArray.removeAll()
+//
+//        retrieveData()
+//
+//        refreshControl.endRefreshing()
+//    }
     
 
     // MARK: - Table view data source
@@ -162,33 +162,40 @@ class CarViewController: UIViewController, UITableViewDataSource, UITableViewDel
                                     
                     print("Image showing error ======= \(String(describing: error))")
                 }
+                
+                carList.vehicleName = snapshotValue["carModel"]!
+
+                carList.vehicleRegYear = snapshotValue["regYear"]!
+                
+                carList.availability = snapshotValue["availability"]!
+                
+                carList.location = snapshotValue["location"]!
+                
+                carList.rent = snapshotValue["rent"]!
+
+                carList.message = snapshotValue["message"]!
+                
+                carList.folder = snapshotValue["folder"]!
+
+                self.carListArray.append(carList)
+                
+                self.carTableView.reloadData()
             }
             
-            carList.vehicleName = snapshotValue["carModel"]!
 
-            carList.vehicleRegYear = snapshotValue["regYear"]!
             
-            carList.availability = snapshotValue["availability"]!
-            
-            carList.location = snapshotValue["location"]!
-            
-            carList.rent = snapshotValue["rent"]!
-
-            carList.message = snapshotValue["message"]!
-            
-            carList.folder = snapshotValue["folder"]!
-
-            self.carListArray.append(carList)
+            print("======================================       \(self.carListArray.count)")
             
 //            DispatchQueue.main.async {
 //
 //                self.carTableView.reloadData()
 //            }
             
-            self.carTableView.reloadData()
+            
             
             //db.removeAllObservers()
         }
+        
     }
 
     

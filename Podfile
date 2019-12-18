@@ -14,7 +14,6 @@ target 'bahon' do
    pod 'Firebase/Database'
    pod 'Firebase/Storage'
    
-   pod 'RealmSwift'
    pod 'SwipeCellKit'
    
 end
