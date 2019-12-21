@@ -49,10 +49,9 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         loadProfileSettings()
         
-        
-        
         loadProfile()
     }
+    
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

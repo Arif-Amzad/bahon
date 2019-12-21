@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KfU-4a-S2U">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
@@ -8,58 +8,46 @@
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="EHf-IW-A2E">
+        <scene sceneID="ySb-3y-mmB">
             <objects>
-                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                <viewController id="KfU-4a-S2U" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lqn-sS-3sY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="buf-UO-NmK">
-                                <rect key="frame" x="0.0" y="44" width="414" height="327"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="bahon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Am3-3M-25Q">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="327"/>
-                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="50"/>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qYX-Rv-MNh">
+                                <rect key="frame" x="87" y="645" width="240" height="6"/>
                                 <constraints>
-                                    <constraint firstItem="Am3-3M-25Q" firstAttribute="top" secondItem="buf-UO-NmK" secondAttribute="top" id="3up-l4-7cj"/>
-                                    <constraint firstItem="Am3-3M-25Q" firstAttribute="leading" secondItem="buf-UO-NmK" secondAttribute="leading" id="Mei-Nb-6jQ"/>
-                                    <constraint firstAttribute="bottom" secondItem="Am3-3M-25Q" secondAttribute="bottom" id="mf2-zh-v2b"/>
-                                    <constraint firstAttribute="trailing" secondItem="Am3-3M-25Q" secondAttribute="trailing" id="x1A-cv-c4w"/>
+                                    <constraint firstAttribute="width" constant="240" id="N70-BW-qOg"/>
+                                    <constraint firstAttribute="height" constant="6" id="v5b-ki-i5O"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconCarRent" translatesAutoresizingMaskIntoConstraints="NO" id="VBP-4B-39L">
-                                <rect key="frame" x="147" y="371" width="120" height="154"/>
-                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bahon-logo2" translatesAutoresizingMaskIntoConstraints="NO" id="Ddv-ND-661">
+                                <rect key="frame" x="73" y="376" width="268" height="268"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" systemColor="tertiarySystemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="154" id="uCq-RN-UFC"/>
-                                    <constraint firstAttribute="width" constant="120" id="yeM-BT-5pw"/>
+                                    <constraint firstAttribute="height" constant="268" id="BKM-lf-d7t"/>
+                                    <constraint firstAttribute="width" constant="268" id="dyH-yj-9in"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="buf-UO-NmK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="0d4-2V-pdC"/>
-                            <constraint firstItem="VBP-4B-39L" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="6Qp-Am-gUy"/>
-                            <constraint firstItem="VBP-4B-39L" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Bht-Xg-fYW"/>
-                            <constraint firstItem="VBP-4B-39L" firstAttribute="top" secondItem="buf-UO-NmK" secondAttribute="bottom" id="Fm3-cd-Jxp"/>
-                            <constraint firstItem="buf-UO-NmK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="gWc-FE-fEY"/>
-                            <constraint firstItem="buf-UO-NmK" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="tXa-Si-YTI"/>
+                            <constraint firstItem="Ddv-ND-661" firstAttribute="centerX" secondItem="lqn-sS-3sY" secondAttribute="centerX" id="1Se-dX-zdn"/>
+                            <constraint firstItem="qYX-Rv-MNh" firstAttribute="centerX" secondItem="lqn-sS-3sY" secondAttribute="centerX" id="SNC-ok-lBH"/>
+                            <constraint firstItem="qYX-Rv-MNh" firstAttribute="centerY" secondItem="lqn-sS-3sY" secondAttribute="centerY" constant="200" id="pHC-yU-nEX"/>
+                            <constraint firstItem="qYX-Rv-MNh" firstAttribute="top" secondItem="Ddv-ND-661" secondAttribute="bottom" constant="1" id="uoz-Xp-uyv"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <viewLayoutGuide key="safeArea" id="2D1-lP-arp"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nVu-Qd-pAJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52.173913043478265" y="375"/>
+            <point key="canvasLocation" x="762.31884057971024" y="369.64285714285711"/>
         </scene>
     </scenes>
     <resources>
-        <image name="iconCarRent" width="256" height="256"/>
+        <image name="bahon-logo2" width="341" height="341"/>
     </resources>
 </document>
