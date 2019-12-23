@@ -62,7 +62,7 @@
                                             <constraint firstAttribute="height" constant="34" id="i6k-cI-1SL"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES" smartDashesType="no" smartQuotesType="no" textContentType="password"/>
                                     </textField>
                                 </subviews>
                                 <constraints>
@@ -415,11 +415,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="syP-DR-1D3">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </searchBar>
                         <connections>
                             <outlet property="dataSource" destination="VEB-ET-Htn" id="hBx-4A-587"/>
                             <outlet property="delegate" destination="VEB-ET-Htn" id="2JH-C2-Whg"/>
@@ -530,7 +525,7 @@
                                             <constraint firstAttribute="height" constant="34" id="X4e-IL-Uqg"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" smartDashesType="no" smartQuotesType="no" textContentType="password"/>
                                     </textField>
                                 </subviews>
                                 <constraints>
@@ -1122,6 +1117,6 @@
         <image name="imageProfile" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="iJt-FR-HtQ"/>
+        <segue reference="2QI-3e-clH"/>
     </inferredMetricsTieBreakers>
 </document>
