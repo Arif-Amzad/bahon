@@ -20,7 +20,7 @@ class CarViewController: UIViewController, UITableViewDataSource, UITableViewDel
 
     var hidesBarsOnSwipe: Bool?
     
-    //var refreshControl = UIRefreshControl()
+    var refreshControl = UIRefreshControl()
     
 
     override func viewDidLoad() {
@@ -30,19 +30,19 @@ class CarViewController: UIViewController, UITableViewDataSource, UITableViewDel
         
         carTableView.register(UINib(nibName: "VehicleListViewCell", bundle: nil), forCellReuseIdentifier: "VehicleListViewCellXIB")
         
-        retrieveData()
         
-//        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
-//
-//        refreshControl.addTarget(self, action: #selector(refresh(sender:)), for: UIControl.Event.valueChanged)
-//
-//        carTableView.addSubview(refreshControl)
+        
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+
+        refreshControl.addTarget(self, action: #selector(refresh(sender:)), for: UIControl.Event.valueChanged)
+
+        carTableView.addSubview(refreshControl)
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
         //super.viewWillAppear(animated)
-        
+        retrieveData()
     }
     
     
@@ -52,14 +52,15 @@ class CarViewController: UIViewController, UITableViewDataSource, UITableViewDel
     }
     
     
-//    @objc func refresh(sender:AnyObject) {
-//
-//        carListArray.removeAll()
-//
-//        retrieveData()
-//
-//        refreshControl.endRefreshing()
-//    }
+    @objc func refresh(sender:AnyObject) {
+
+        carListArray.removeAll()
+
+        retrieveData()
+        refreshControl.endRefreshing()
+
+        carTableView.reloadData()
+            }
     
 
     // MARK: - Table view data source

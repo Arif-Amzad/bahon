@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		056776B3F4FDDDC891F754CE /* Pods_bahon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9647A620E70E831B66AA0E89 /* Pods_bahon.framework */; };
 		DD05D9CC239A32BD0035EAF9 /* SwipeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD05D9CB239A32BD0035EAF9 /* SwipeTableViewController.swift */; };
 		DD0B814823AAB60000462809 /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0B814723AAB60000462809 /* extension.swift */; };
 		DD27D61E2398D03500D88423 /* VehicleListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD27D61C2398D03500D88423 /* VehicleListViewCell.swift */; };
@@ -29,12 +30,11 @@
 		DDFDB39F2380FA8500027DDD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDFDB39D2380FA8500027DDD /* LaunchScreen.storyboard */; };
 		DDFDB3BA2381170300027DDD /* CategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFDB3B92381170300027DDD /* CategoryVC.swift */; };
 		DDFDD23F239A4252000E630D /* MyVehicleTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFDD23E239A4251000E630D /* MyVehicleTableVC.swift */; };
-		ECC8E9C51E0A95F0B0B35B84 /* Pods_bahon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70379D8FF643B0F31DBA5116 /* Pods_bahon.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		70379D8FF643B0F31DBA5116 /* Pods_bahon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bahon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		834D2C743A8AAA61B3DFBB4F /* Pods-bahon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bahon.release.xcconfig"; path = "Target Support Files/Pods-bahon/Pods-bahon.release.xcconfig"; sourceTree = "<group>"; };
+		9647A620E70E831B66AA0E89 /* Pods_bahon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bahon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD05D9CB239A32BD0035EAF9 /* SwipeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeTableViewController.swift; sourceTree = "<group>"; };
 		DD0B814723AAB60000462809 /* extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension.swift; sourceTree = "<group>"; };
 		DD27D61C2398D03500D88423 /* VehicleListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleListViewCell.swift; sourceTree = "<group>"; };
@@ -67,7 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECC8E9C51E0A95F0B0B35B84 /* Pods_bahon.framework in Frameworks */,
+				056776B3F4FDDDC891F754CE /* Pods_bahon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,7 +86,7 @@
 		8C26E01E87C990C5B67012DD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				70379D8FF643B0F31DBA5116 /* Pods_bahon.framework */,
+				9647A620E70E831B66AA0E89 /* Pods_bahon.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -214,7 +214,7 @@
 				DDFDB38B2380FA8200027DDD /* Sources */,
 				DDFDB38C2380FA8200027DDD /* Frameworks */,
 				DDFDB38D2380FA8200027DDD /* Resources */,
-				7099462F3721A9BE8497DDBC /* [CP] Embed Pods Frameworks */,
+				B9E77143677CBA5EF55172BC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -297,7 +297,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7099462F3721A9BE8497DDBC /* [CP] Embed Pods Frameworks */ = {
+		B9E77143677CBA5EF55172BC /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (

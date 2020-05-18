@@ -1,4 +1,4 @@
-platform :ios, '9.0'
+platform :ios, '11.0'
 
 target 'bahon' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -13,7 +13,7 @@ target 'bahon' do
    pod 'Firebase/Firestore'
    pod 'Firebase/Database'
    pod 'Firebase/Storage'
-   
+   pod 'IQKeyboardManagerSwift'
    pod 'SwipeCellKit'
    
 end

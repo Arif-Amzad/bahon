@@ -55,9 +55,10 @@ class MyVehicleTableVC: UITableViewController {
         carListArray.removeAll()
         
         retrieveData()
-        
         refresh.endRefreshing()
-    }
+
+        tableView.reloadData()
+            }
 
     
     
